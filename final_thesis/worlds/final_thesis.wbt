@@ -1,0 +1,46 @@
+#VRML_SIM R2022b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/robots/softbank/nao/protos/Nao.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.09770706372565309 0.027363015053462954 -0.9948389794862761 2.598132177918916
+  position 2.0165933647075587 1.5271372325636838 0.973447160901117
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 5 5
+}
+DEF robot Robot {
+  children [
+    Receiver {
+      channel 1
+    }
+    Emitter {
+      channel 1
+    }
+  ]
+  controller "my_supervisor"
+  supervisor TRUE
+}
+DEF NAO Nao {
+  controller "Nao_controller"
+  channel 1
+  leftFootSlot [
+    GPS {
+      name "l_gps"
+    }
+  ]
+  rightFootSlot [
+    GPS {
+      name "r_gps"
+    }
+  ]
+}
